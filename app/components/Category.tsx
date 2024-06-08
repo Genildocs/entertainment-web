@@ -105,8 +105,8 @@ export default function Category({ category, searchInput }: CategoryProps) {
           isCategory.map((category: any) => (
             <div key={category.title}>
               <div>{renderImage(category)}</div>
-              <div>
-                <div className="flex items-center gap-2 text-white">
+              <div className="mt-3">
+                <div className="flex items-center gap-2 text-white opacity-80">
                   <p>{category.year}</p>
                   <GoDotFill />
                   <p>{category.category}</p>

@@ -1,3 +1,7 @@
+import InputSearch from '../components/InputSearch';
+
 export default function Bookmarked() {
-  return <div>Bookmarked</div>;
+  return (
+    <div>{/* <InputSearch placeholder="Search for bookmarked shows" /> */}</div>
+  );
 }
