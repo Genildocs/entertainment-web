@@ -8,6 +8,21 @@
   }
 }
 
+@layer components {
+  .isMobile {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .isTablet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .isDesktop {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @layer utilities {
   ::placeholder {
     font-size: 1rem;
