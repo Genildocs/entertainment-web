@@ -1,3 +1,4 @@
+'use client';
 import InputSearch from '../components/InputSearch';
 
 export default function Bookmarked() {
