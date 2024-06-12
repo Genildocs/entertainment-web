@@ -1,8 +1,8 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { data } from '../data';
-import { GoDotFill } from 'react-icons/go';
-import Image from 'next/image';
+"use client";
+import { useEffect, useState } from "react";
+import { data } from "../data";
+import { GoDotFill } from "react-icons/go";
+import Image from "next/image";
 
 interface CategoryProps {
   category: string;
@@ -25,10 +25,6 @@ interface CategoryItem {
 export default function Category({ category, searchInput }: CategoryProps) {
   const [date, setDate] = useState<CategoryItem[]>(data);
   const [isCategory, setIsCategory] = useState<CategoryItem[]>([]);
-
-  const isSmallDevice = '';
-  const isMediumDevice = true;
-  const isLargeDevice = true;
 
   useEffect(() => {
     if (searchInput.length > 0) {
