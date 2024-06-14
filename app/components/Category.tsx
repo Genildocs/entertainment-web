@@ -1,27 +1,9 @@
-"use client";
-import { useEffect, useState } from "react";
-import { data } from "../data";
-import { GoDotFill } from "react-icons/go";
-import Image from "next/image";
-
-interface CategoryProps {
-  category: string;
-  searchInput: any;
-}
-
-interface CategoryItem {
-  title: string;
-  year: number;
-  category: string;
-  rating: string;
-  thumbnail: {
-    regular: {
-      small: string;
-      medium: string;
-      large: string;
-    };
-  };
-}
+'use client';
+import { useEffect, useState } from 'react';
+import { data } from '../data';
+import { GoDotFill } from 'react-icons/go';
+import Image from 'next/image';
+import { CategoryItem, CategoryProps } from '../interfaces';
 export default function Category({ category, searchInput }: CategoryProps) {
   const [date, setDate] = useState<CategoryItem[]>(data);
   const [isCategory, setIsCategory] = useState<CategoryItem[]>([]);
@@ -62,22 +44,22 @@ export default function Category({ category, searchInput }: CategoryProps) {
             <div key={category.title}>
               <div>
                 <Image
-                  src={`/${category.thumbnail.regular.small}`}
+                  src={`${category.thumbnail.regular.small}`}
                   alt={category.title}
                   layout="fill"
-                  className="rounded-md w-full isSmallDevice !relative"
+                  className="rounded-md w-full isSmallDevice !static"
                 />
                 <Image
-                  src={`/${category.thumbnail.regular.medium}`}
+                  src={`${category.thumbnail.regular.medium}`}
                   alt={category.title}
                   layout="fill"
-                  className="rounded-md w-full isMediumDevice !relative"
+                  className="rounded-md w-full isMediumDevice !static"
                 />
                 <Image
-                  src={`/${category.thumbnail.regular.large}`}
+                  src={`${category.thumbnail.regular.large}`}
                   alt={category.title}
                   layout="fill"
-                  className="rounded-md w-full isLargeDevice !relative"
+                  className="rounded-md w-full isLargeDevice !static"
                 />
               </div>
               <div className="mt-3">
