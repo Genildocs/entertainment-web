@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable}`}>
+      <body className={`${outfit.variable} lg:flex`}>
         <Nav />
         {children}
       </body>

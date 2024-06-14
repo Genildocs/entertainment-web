@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export default function Nav() {
   return (
-    <div className=" bg-blue_1  h-[10vh] flex items-center justify-between px-3 sm:m-5 sm:rounded-md">
+    <div className="bg-blue_1 h-[10vh] lg:h-[90vh] lg:w-[96px] flex lg:flex-col items-center justify-between px-3 lg:py-3 sm:m-5 sm:rounded-md">
       <div>
         <Image
           src={Logo}
@@ -20,7 +20,7 @@ export default function Nav() {
           className="sm:w-[32px] sm:h-[25px]"
         />
       </div>
-      <div className="flex items-center gap-5">
+      <div className="flex items-center lg:flex-col gap-5">
         <Link href="/">
           <Image
             src={Home}

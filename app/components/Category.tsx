@@ -47,18 +47,21 @@ export default function Category({ category, searchInput }: CategoryProps) {
                   src={`${category.thumbnail.regular.small}`}
                   alt={category.title}
                   layout="fill"
+                  sizes="auto"
                   className="rounded-md w-full isSmallDevice !static"
                 />
                 <Image
                   src={`${category.thumbnail.regular.medium}`}
                   alt={category.title}
                   layout="fill"
+                  sizes="auto"
                   className="rounded-md w-full isMediumDevice !static"
                 />
                 <Image
                   src={`${category.thumbnail.regular.large}`}
                   alt={category.title}
                   layout="fill"
+                  sizes="auto"
                   className="rounded-md w-full isLargeDevice !static"
                 />
               </div>
