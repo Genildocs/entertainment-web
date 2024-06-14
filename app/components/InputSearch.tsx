@@ -2,24 +2,7 @@
 import { useReducer, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import { data } from '../data';
-
-interface input {
-  placeholder: string;
-  searchInput: any;
-}
-
-interface State {
-  date: any[];
-  search: string;
-  empty: boolean;
-  notFound: boolean;
-}
-
-interface Action {
-  type: any;
-  payload: any;
-}
-
+import { input, Action, State } from '../interfaces';
 const initialState: State = {
   date: [],
   search: '',
