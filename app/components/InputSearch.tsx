@@ -1,21 +1,64 @@
 'use client';
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import { data } from '../data';
+
 interface input {
   placeholder: string;
   searchInput: any;
 }
+
+interface State {
+  date: any[];
+  search: string;
+  empty: boolean;
+  notFound: boolean;
+}
+
+interface Action {
+  type: any;
+  payload: any;
+}
+
+const initialState: State = {
+  date: [],
+  search: '',
+  empty: false,
+  notFound: false,
+};
+
+function reducer(state: State, action: Action) {
+  switch (action.type) {
+    case 'search':
+      return {
+        ...state,
+        search: action.payload,
+      };
+    case 'isEmpty':
+      return {
+        ...state,
+        empty: action.payload,
+      };
+    case 'isNotFound':
+      return {
+        ...state,
+        notFound: action.payload,
+      };
+    default:
+      throw new Error('Invalid action');
+  }
+}
 export default function InputSearch({ placeholder, searchInput }: input) {
+  const [{ search, empty, notFound }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
   const [date, setDate] = useState(data);
-  const [search, setSearch] = useState('');
-  const [empty, setEmpty] = useState(false);
-  const [notFound, setNotFound] = useState(false);
 
   const handleSearch = () => {
     if (search.trim() === '') {
-      setEmpty(true);
-      setInterval(() => setEmpty(false), 5000);
+      dispatch({ type: 'isEmpty', payload: true });
+      setInterval(() => dispatch({ type: 'isEmpty', payload: false }), 5000);
       return;
     }
 
@@ -26,11 +69,9 @@ export default function InputSearch({ placeholder, searchInput }: input) {
     searchInput(filterSearch);
 
     if (filterSearch.length === 0) {
-      setNotFound(true);
-      setInterval(() => setNotFound(false), 5000);
+      dispatch({ type: 'isNotFound', payload: true });
+      setInterval(() => dispatch({ type: 'isNotFound', payload: false }), 5000);
     }
-
-    setSearch('');
   };
 
   return (
@@ -45,7 +86,9 @@ export default function InputSearch({ placeholder, searchInput }: input) {
           placeholder={placeholder}
           className="outline-none bg-transparent text-white w-full max-w-[250px] placeholder:text-md"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) =>
+            dispatch({ type: 'search', payload: e.target.value })
+          }
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
         />
       </div>
