@@ -1,7 +1,7 @@
-'use client';
-import { useState } from 'react';
-import Category from '../components/Category';
-import InputSearch from '../components/InputSearch';
+"use client";
+import { useState } from "react";
+import Category from "../components/Category";
+import InputSearch from "../components/InputSearch";
 
 export default function TvSeries() {
   const [result, setResult] = useState([]);

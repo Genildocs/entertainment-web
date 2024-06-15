@@ -5,6 +5,7 @@ import { GoDotFill } from "react-icons/go";
 import Image from "next/image";
 import { CategoryItem, CategoryProps } from "../interfaces";
 import BtnBookmarked from "./BtnBookmarked";
+
 export default function Category({ category, searchInput }: CategoryProps) {
   const [date, setDate] = useState<CategoryItem[]>(data);
   const [isCategory, setIsCategory] = useState<CategoryItem[]>([]);
