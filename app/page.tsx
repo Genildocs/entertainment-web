@@ -1,7 +1,8 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { data } from './data';
-import InputSearch from './components/InputSearch';
+"use client";
+import React, { useEffect, useState } from "react";
+import { data } from "./data";
+import InputSearch from "./components/InputSearch";
+import Recommended from "./components/Recommended";
 
 export default function Home() {
   const [result, setResult] = useState([]);
@@ -11,6 +12,7 @@ export default function Home() {
         placeholder="Search for movies or TV series"
         searchInput={setResult}
       />
+      <Recommended />
     </div>
   );
 }

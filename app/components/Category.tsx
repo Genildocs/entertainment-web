@@ -1,9 +1,10 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { data } from '../data';
-import { GoDotFill } from 'react-icons/go';
-import Image from 'next/image';
-import { CategoryItem, CategoryProps } from '../interfaces';
+"use client";
+import { useEffect, useState } from "react";
+import { data } from "../data";
+import { GoDotFill } from "react-icons/go";
+import Image from "next/image";
+import { CategoryItem, CategoryProps } from "../interfaces";
+import BtnBookmarked from "./BtnBookmarked";
 export default function Category({ category, searchInput }: CategoryProps) {
   const [date, setDate] = useState<CategoryItem[]>(data);
   const [isCategory, setIsCategory] = useState<CategoryItem[]>([]);
@@ -42,7 +43,7 @@ export default function Category({ category, searchInput }: CategoryProps) {
         {isCategory.length > 0 &&
           isCategory.map((category: any) => (
             <div key={category.title}>
-              <div>
+              <div className="relative">
                 <Image
                   src={`${category.thumbnail.regular.small}`}
                   alt={category.title}
@@ -64,6 +65,7 @@ export default function Category({ category, searchInput }: CategoryProps) {
                   sizes="auto"
                   className="rounded-md w-full isLargeDevice !static"
                 />
+                <BtnBookmarked />
               </div>
               <div className="mt-3">
                 <div className="flex items-center gap-2 text-white opacity-80">
