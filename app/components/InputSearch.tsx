@@ -36,7 +36,7 @@ export default function InputSearch({ placeholder, searchInput }: input) {
     reducer,
     initialState
   );
-  const [date, setDate] = useState(data);
+  const date = data;
 
   const handleSearch = () => {
     if (search.trim() === "") {

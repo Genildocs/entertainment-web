@@ -4,7 +4,7 @@ export interface input {
 }
 
 export interface State {
-  date: any[];
+  date?: any[];
   search: string;
   empty: boolean;
   notFound: boolean;
