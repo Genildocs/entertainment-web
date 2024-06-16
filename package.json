@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@syncfusion/ej2-react-navigations": "^26.1.35",
     "@uidotdev/usehooks": "^2.4.1",
     "next": "14.2.3",
     "react": "^18",

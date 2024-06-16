@@ -3,6 +3,7 @@ import { Outfit } from 'next/font/google';
 import './globals.css';
 import Nav from './components/Nav';
 import { SearchProvider } from './context/SearchContext';
+
 const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
