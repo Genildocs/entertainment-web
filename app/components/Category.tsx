@@ -12,31 +12,18 @@ export default function Category({ category }: CategoryProps) {
 
   useEffect(() => {
     try {
-      if (result.length !== 0) {
-        const filterCategory = result.filter(
-          (item) => item.category === category
-        );
-        setIsCategory(filterCategory);
-      }
+      const filterCategory = (items: CategoryItem[]) => {
+        return items.filter((item) => item.category === category);
+      };
+
+      const filteredData = filterCategory(data);
+      const filteredResult = filterCategory(result);
+
+      setIsCategory(filteredResult.length > 0 ? filteredResult : filteredData);
     } catch (error) {
       console.log(error);
     }
-  }, [category, result]);
-
-  useEffect(() => {
-    const handleCategory = () => {
-      try {
-        const filterCategory = data.filter(
-          (item) => item.category === category
-        );
-        setIsCategory(filterCategory);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    handleCategory();
-  }, [category, data]);
+  }, [category, result, data]);
 
   return (
     <div className="px-3 mt-7">
@@ -52,30 +39,19 @@ export default function Category({ category }: CategoryProps) {
           isCategory.map((category: any) => (
             <div key={category.title}>
               <div className="relative">
-                <Image
-                  src={`${category.thumbnail.regular.small}`}
-                  alt={category.title}
-                  fill
-                  sizes="auto"
-                  priority={true}
-                  className="rounded-md w-full isSmallDevice !static autoSize"
-                />
-                <Image
-                  src={`${category.thumbnail.regular.medium}`}
-                  alt={category.title}
-                  fill
-                  sizes="auto"
-                  priority={true}
-                  className="rounded-md w-full isMediumDevice !static autoSize"
-                />
-                <Image
-                  src={`${category.thumbnail.regular.large}`}
-                  alt={category.title}
-                  fill
-                  sizes="auto"
-                  priority={true}
-                  className="rounded-md w-full isLargeDevice !static autoSize"
-                />
+                {['small', 'medium', 'large'].map((size, index) => (
+                  <Image
+                    key={index}
+                    src={`${category.thumbnail.regular[size]}`}
+                    alt={category.title}
+                    fill
+                    sizes="auto"
+                    priority={true}
+                    className={`rounded-md w-full is${
+                      size.charAt(0).toLocaleUpperCase() + size.slice(1)
+                    }Device !static autoSize`}
+                  />
+                ))}
                 <BtnBookmarked />
               </div>
               <div className="mt-3">
