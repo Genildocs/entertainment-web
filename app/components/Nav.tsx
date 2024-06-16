@@ -17,7 +17,7 @@ export default function Nav() {
           alt="logo"
           width={25}
           height={20}
-          className="sm:w-[32px] sm:h-[25px]"
+          className="sm:w-[32px] sm:h-[25px] autoSize"
         />
       </div>
       <div className="flex items-center lg:flex-col gap-5">
@@ -26,7 +26,7 @@ export default function Nav() {
             src={Home}
             width={25}
             height={20}
-            className="sm:w-[32px] sm:h-[25px]"
+            className="sm:w-[32px] sm:h-[25px] autoSize"
             alt="home"
           />
         </Link>
@@ -35,7 +35,7 @@ export default function Nav() {
             src={Movies}
             width={25}
             height={20}
-            className="sm:w-[32px] sm:h-[25px]"
+            className="sm:w-[32px] sm:h-[25px] autoSize"
             alt="home"
           />
         </Link>
@@ -44,7 +44,7 @@ export default function Nav() {
             src={TvSeries}
             width={25}
             height={20}
-            className="sm:w-[32px] sm:h-[25px]"
+            className="sm:w-[32px] sm:h-[25px] autoSize"
             alt="home"
           />
         </Link>
@@ -53,7 +53,7 @@ export default function Nav() {
             src={Bookmarked}
             width={25}
             height={20}
-            className="sm:w-[32px] sm:h-[25px]"
+            className="sm:w-[32px] sm:h-[25px] autoSize"
             alt="home"
           />
         </Link>
@@ -64,7 +64,7 @@ export default function Nav() {
           alt="avatar"
           width={25}
           height={25}
-          className="sm:w-[32px] sm:h-[25px]"
+          className="sm:w-[32px] sm:h-[25px] autoSize"
           style={{
             border: '1px solid white',
             borderRadius: '50%',

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 import './globals.css';
 import Nav from './components/Nav';
-
+import { SearchProvider } from './context/SearchContext';
 const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.variable} lg:flex`}>
         <Nav />
-        {children}
+        <SearchProvider>{children}</SearchProvider>
       </body>
     </html>
   );

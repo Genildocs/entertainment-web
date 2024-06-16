@@ -6,6 +6,11 @@
   body {
     @apply font-outfit text-body_S md:text-body_M bg-blue_black;
   }
+
+  .autoSize {
+    width: auto;
+    height: auto;
+  }
 }
 
 @layer components {

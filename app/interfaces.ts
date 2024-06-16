@@ -1,6 +1,7 @@
 export interface input {
   placeholder: string;
-  searchInput: any;
+  searchInput?: any;
+  category?: string;
 }
 
 export interface State {
@@ -17,7 +18,7 @@ export interface Action {
 
 export interface CategoryProps {
   category: string;
-  searchInput: any;
+  searchInput?: any;
 }
 
 export interface CategoryItem {

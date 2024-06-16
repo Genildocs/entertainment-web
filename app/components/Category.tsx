@@ -1,25 +1,32 @@
-"use client";
-import { useEffect, useState } from "react";
-import { data } from "../data";
-import { GoDotFill } from "react-icons/go";
-import Image from "next/image";
-import { CategoryItem, CategoryProps } from "../interfaces";
-import BtnBookmarked from "./BtnBookmarked";
+'use client';
+import { useEffect, useState } from 'react';
+import { GoDotFill } from 'react-icons/go';
+import Image from 'next/image';
+import { CategoryItem, CategoryProps } from '../interfaces';
+import BtnBookmarked from './BtnBookmarked';
+import { useSearch } from '../context/SearchContext';
 
-export default function Category({ category, searchInput }: CategoryProps) {
-  const [date, setDate] = useState<CategoryItem[]>(data);
+export default function Category({ category }: CategoryProps) {
   const [isCategory, setIsCategory] = useState<CategoryItem[]>([]);
+  const { result, data } = useSearch();
 
   useEffect(() => {
-    if (searchInput.length > 0) {
-      setIsCategory(searchInput);
+    try {
+      if (result.length !== 0) {
+        const filterCategory = result.filter(
+          (item) => item.category === category
+        );
+        setIsCategory(filterCategory);
+      }
+    } catch (error) {
+      console.log(error);
     }
-  }, [isCategory, searchInput]);
+  }, [category, result]);
 
   useEffect(() => {
     const handleCategory = () => {
       try {
-        const filterCategory = date.filter(
+        const filterCategory = data.filter(
           (item) => item.category === category
         );
         setIsCategory(filterCategory);
@@ -29,13 +36,13 @@ export default function Category({ category, searchInput }: CategoryProps) {
     };
 
     handleCategory();
-  }, [category, date]);
+  }, [category, data]);
 
   return (
     <div className="px-3 mt-7">
       <div className="mb-7">
-        {searchInput.length > 0 ? (
-          <p className="text-white text-lg ">{`Found ${searchInput.length} results`}</p>
+        {result.length > 0 ? (
+          <p className="text-white text-lg ">{`Found ${result.length} results`}</p>
         ) : (
           <h1 className="text-white text-lg ">{category}</h1>
         )}
@@ -48,23 +55,26 @@ export default function Category({ category, searchInput }: CategoryProps) {
                 <Image
                   src={`${category.thumbnail.regular.small}`}
                   alt={category.title}
-                  layout="fill"
+                  fill
                   sizes="auto"
-                  className="rounded-md w-full isSmallDevice !static"
+                  priority={true}
+                  className="rounded-md w-full isSmallDevice !static autoSize"
                 />
                 <Image
                   src={`${category.thumbnail.regular.medium}`}
                   alt={category.title}
-                  layout="fill"
+                  fill
                   sizes="auto"
-                  className="rounded-md w-full isMediumDevice !static"
+                  priority={true}
+                  className="rounded-md w-full isMediumDevice !static autoSize"
                 />
                 <Image
                   src={`${category.thumbnail.regular.large}`}
                   alt={category.title}
-                  layout="fill"
+                  fill
                   sizes="auto"
-                  className="rounded-md w-full isLargeDevice !static"
+                  priority={true}
+                  className="rounded-md w-full isLargeDevice !static autoSize"
                 />
                 <BtnBookmarked />
               </div>
