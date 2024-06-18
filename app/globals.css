@@ -7,15 +7,24 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer utilities {
   body {
-    @apply font-outfit text-body_S md:text-body_M bg-blue_black;
+    @apply font-outfit text-body_S md:text-body_M bg-blue_black lg:grid;
+    grid-template-columns: 125px calc(100% - 125px);
   }
 
   .autoSize {
     width: auto;
     height: auto;
   }
+
+  ::placeholder {
+    font-size: 1rem;
+  }
+}
+
+.swiper-slide {
+  margin-right: 25px !important;
 }
 
 @layer components {
@@ -30,12 +39,6 @@
 
   .isDesktop {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-@layer utilities {
-  ::placeholder {
-    font-size: 1rem;
   }
 }
 

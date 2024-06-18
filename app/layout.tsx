@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} lg:flex`}>
+      <body className={`${outfit.variable} `}>
         <Nav />
         <SearchProvider>{children}</SearchProvider>
       </body>
