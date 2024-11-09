@@ -10,3 +10,8 @@
   @tailwind components;
   @tailwind utilities;
 }
+
+body {
+  @apply bg-secondary text-white min-h-screen;
+  font-family: "Nunito", serif;
+}
