@@ -6,4 +6,14 @@
   --color-design-3: rgb(90, 105, 143);
   --color-design-4: rgb(22, 29, 47);
   --color-design-5: rgb(255, 255, 255);
+  --font-nunito: 'Nunito Sans', sans-serif;
+}
+
+html,
+body {
+  @apply h-full;
+}
+
+body {
+  @apply text-white font-nunito bg-design-2;
 }
