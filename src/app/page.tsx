@@ -19,14 +19,12 @@ export default function Home() {
           filteredList.map((list, index) => (
             <div key={index}>
               <div className="relative w-[165px] h-[110px] overflow-hidden rounded-lg">
-                <Image
+                <img
                   src={`/images/${list.thumbnail.regular.small.replace(
                     './assets/',
                     ''
                   )}`}
                   alt={list.title}
-                  fill
-                  priority={true}
                 />
               </div>
             </div>

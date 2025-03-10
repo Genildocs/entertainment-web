@@ -19,3 +19,9 @@ body {
 body {
   @apply text-white font-outfit bg-design-2;
 }
+
+.swiper-slide {
+  position: relative !important;
+  width: 240px !important;
+  height: 140px !important;
+}

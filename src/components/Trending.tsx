@@ -1,6 +1,15 @@
 import React, { useEffect } from 'react';
 import useDataStore from '@/store/dataStore';
-import Carousel from './Carousel';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+  EffectFade,
+} from 'swiper/modules';
+import 'swiper/css/bundle';
 export default function Trending() {
   const { filterByTrending, displayedList, setFilterByTrending } =
     useDataStore();
@@ -18,12 +27,30 @@ export default function Trending() {
       </div>
       <div>
         {filterByTrending ? (
-          <div className="relative  flex gap-5">
+          <Swiper
+            modules={[
+              Navigation,
+              Pagination,
+              Scrollbar,
+              A11y,
+              Autoplay,
+              EffectFade,
+            ]}
+            slidesPerView={2}
+            spaceBetween={10}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}>
             {displayedList.map((item, index) => (
-              <div key={index} className="relative">
-                <Carousel
-                  image={item.thumbnail.trending?.large}
-                  index={index}
+              <SwiperSlide key={index}>
+                <img
+                  className="object-cover w-full h-full rounded-lg"
+                  src={`/images/${item.thumbnail.regular.small.replace(
+                    './assets/',
+                    ''
+                  )}`}
                 />
                 <div className="absolute bottom-0 grid grid-cols-3 px-4 pb-4 gap-x-5 ">
                   <p className="text-[12px] lg:text-sm font-normal">
@@ -39,9 +66,9 @@ export default function Trending() {
                     {item.title}
                   </p>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         ) : (
           <p>Carregando</p>
         )}
