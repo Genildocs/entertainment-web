@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import useDataStore from '@/store/dataStore';
 import Image from 'next/image';
+import Carousel from './ui/Carousel';
 export default function Trending() {
   const { filterByTrending, displayedList, setFilterByTrending } =
     useDataStore();
@@ -9,7 +10,6 @@ export default function Trending() {
     setFilterByTrending(!filterByTrending);
   }, []);
 
-  console.log(filterByTrending);
   return (
     <div>
       <div className="px-4 py-3">
@@ -17,18 +17,19 @@ export default function Trending() {
       </div>
       <div>
         {filterByTrending ? (
-          <div>
+          <div className="flex">
             {displayedList.map((item, index) => (
               <div key={index}>
-                {item.thumbnail.trending && (
-                  <Image
-                    src={`/${item.thumbnail.trending.small}`}
-                    alt="thumbnail"
-                    width={240}
-                    height={140}
-                  />
-                )}
-                <p>{item.title}</p>
+                <Carousel
+                  image={item.thumbnail.trending?.small}
+                  index={index}
+                />
+                <div>
+                  <p>{item.year}</p>
+                  <p>{item.category}</p>
+                  <p>{item.rating}</p>
+                  <p>{item.title}</p>
+                </div>
               </div>
             ))}
           </div>
