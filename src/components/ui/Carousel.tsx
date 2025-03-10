@@ -13,7 +13,7 @@ export default function Carousel({
     <div>
       {image && (
         <Image
-          src={`/${image.replace('./assets/', './images/')}`}
+          src={`/images/${image.replace('./assets/', '')}`}
           alt="thumbnail"
           width={240}
           height={140}
