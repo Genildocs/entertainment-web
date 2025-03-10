@@ -9,14 +9,14 @@ import Avatar from '../../public/images/image-avatar.png';
 import Image from 'next/image';
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-4 bg-design-4 h-14">
+    <header className="flex lg:flex-col items-center justify-between px-4 lg:p-4 bg-design-4 h-14 lg:min-h-screen lg:h-screen lg:rounded-lg">
       <div>
         <Link href="/">
           <Image src={Logo} alt="logo image" />
         </Link>
       </div>
       <nav>
-        <ul className="flex items-center gap-2">
+        <ul className="flex items-center lg:flex-col gap-2">
           <li>
             <Link href="/">
               <Image src={IconHome} alt="icon image" />

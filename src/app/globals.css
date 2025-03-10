@@ -13,15 +13,13 @@
 
 html,
 body {
-  @apply h-full;
+  @apply h-full lg:h-auto;
 }
 
 body {
-  @apply text-white font-outfit bg-design-2;
+  @apply text-white font-outfit bg-design-2 lg:p-8 lg:flex lg:gap-5 lg:justify-center;
 }
 
 .swiper-slide {
-  position: relative !important;
-  width: 240px !important;
-  height: 140px !important;
+  @apply !relative !w-[240px] !h-[140px] md:!w-[470px] md:!h-[230px];
 }

@@ -36,7 +36,7 @@ export default function Trending() {
               Autoplay,
               EffectFade,
             ]}
-            slidesPerView={2}
+            slidesPerView={3}
             spaceBetween={10}
             loop={true}
             autoplay={{
@@ -47,7 +47,7 @@ export default function Trending() {
               <SwiperSlide key={index}>
                 <img
                   className="object-cover w-full h-full rounded-lg"
-                  src={`/images/${item.thumbnail.regular.small.replace(
+                  src={`/images/${item.thumbnail.regular.large.replace(
                     './assets/',
                     ''
                   )}`}
