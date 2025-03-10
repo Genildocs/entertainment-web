@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
-import { Nunito_Sans } from 'next/font/google';
+import { Nunito_Sans, Outfit } from 'next/font/google';
 import './globals.css';
+import Header from '@/components/Header';
 
 const nunitoSans = Nunito_Sans({
   variable: '--font-nunito-sans',
+  subsets: ['latin'],
+});
+
+const outfit = Outfit({
+  variable: '--font-outfit',
   subsets: ['latin'],
 });
 
@@ -19,7 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={nunitoSans.className}>{children}</body>
+      <body className={outfit.className}>
+        <Header />
+
+        {children}
+      </body>
     </html>
   );
 }

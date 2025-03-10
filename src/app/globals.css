@@ -7,6 +7,8 @@
   --color-design-4: rgb(22, 29, 47);
   --color-design-5: rgb(255, 255, 255, 0.7);
   --font-nunito: 'Nunito Sans', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --text-sm: 15px;
 }
 
 html,
@@ -15,5 +17,5 @@ body {
 }
 
 body {
-  @apply text-white font-nunito bg-design-2;
+  @apply text-white font-outfit bg-design-2;
 }

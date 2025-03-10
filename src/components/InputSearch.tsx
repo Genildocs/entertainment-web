@@ -7,7 +7,7 @@ export default function InputSearch({ title }: { title: string }) {
   const { searchQuery, setSearchQuery } = useDataStore();
 
   return (
-    <div className="flex items-center gap-2 mt-4 ml-4">
+    <div className="flex items-center gap-2 mt-4 ">
       <TbWorldSearch className="opacity-50 size-6" />
       <input
         type="text"

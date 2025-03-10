@@ -1,34 +1,43 @@
 import React, { useEffect } from 'react';
 import useDataStore from '@/store/dataStore';
-import Image from 'next/image';
 import Carousel from './Carousel';
 export default function Trending() {
   const { filterByTrending, displayedList, setFilterByTrending } =
     useDataStore();
 
   useEffect(() => {
-    setFilterByTrending(!filterByTrending);
+    setFilterByTrending(true);
   }, []);
+
+  console.log(filterByTrending);
 
   return (
     <div>
-      <div className="px-4 py-3">
+      <div className="py-4">
         <h2 className="text-2xl font-light tracking-[-0.31px]">Trending</h2>
       </div>
       <div>
         {filterByTrending ? (
-          <div className="flex">
+          <div className="relative  flex gap-5">
             {displayedList.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="relative">
                 <Carousel
                   image={item.thumbnail.trending?.large}
                   index={index}
                 />
-                <div>
-                  <p>{item.year}</p>
-                  <p>{item.category}</p>
-                  <p>{item.rating}</p>
-                  <p>{item.title}</p>
+                <div className="absolute bottom-0 grid grid-cols-3 px-4 pb-4 gap-x-5 ">
+                  <p className="text-[12px] lg:text-sm font-normal">
+                    {item.year}
+                  </p>
+                  <p className="text-[12px] lg:text-sm font-normal">
+                    {item.category}
+                  </p>
+                  <p className="text-[12px] lg:text-sm font-normal">
+                    {item.rating}
+                  </p>
+                  <p className="text-sm lg:text-2xl font-medium col-span-full">
+                    {item.title}
+                  </p>
                 </div>
               </div>
             ))}
