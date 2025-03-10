@@ -10,14 +10,14 @@ export default function Carousel({
   index: number;
 }) {
   return (
-    <div>
+    <div className="relative w-[240px] lg:w-[470px] h-[140px] lg:h-[240px]">
       {image && (
         <Image
           src={`/images/${image.replace('./assets/', '')}`}
-          alt="thumbnail"
-          width={240}
-          height={140}
+          alt={`image-${index}`}
+          fill
           priority={true}
+          className="object-cover "
         />
       )}
     </div>

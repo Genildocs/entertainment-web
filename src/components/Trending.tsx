@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import useDataStore from '@/store/dataStore';
 import Image from 'next/image';
-import Carousel from './ui/Carousel';
+import Carousel from './Carousel';
 export default function Trending() {
   const { filterByTrending, displayedList, setFilterByTrending } =
     useDataStore();
@@ -21,7 +21,7 @@ export default function Trending() {
             {displayedList.map((item, index) => (
               <div key={index}>
                 <Carousel
-                  image={item.thumbnail.trending?.small}
+                  image={item.thumbnail.trending?.large}
                   index={index}
                 />
                 <div>
