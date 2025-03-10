@@ -39,33 +39,6 @@ interface EntertainmentStatus {
   setFilterByBookmark: (value: boolean) => void;
 }
 
-// criacao do store para manipular os estados da aplicacao
-
-/*sem o immer */
-
-/*const useDataStore = create<EntertainmentStatus>((set) => ({
-  entertainmentList: data,
-  filteredList: [...data],
-  searchQuery: '',
-
-  setEntertainmentList: (list) =>
-    set(() => ({
-      entertainmentList: list,
-      filteredList: [...list],
-    })),
-
-  // setSearchQuery: (query) =>
-  //   set((state) => {
-  //     const clonedList = [...state.entertainmentList];
-  //     const filter = clonedList.filter((item) =>
-  //       item.title.toLowerCase().includes(query.toLowerCase())
-  //     );
-  //     return { searchQuery: query, filteredList: filter };
-  //   }),
-})); */
-
-/* com o immer */
-
 const useDataStore = create(
   immer<EntertainmentStatus>((set) => ({
     entertainmentList: [...data],

@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+
 export default function Carousel({
   image,
   index,
@@ -12,11 +13,11 @@ export default function Carousel({
     <div>
       {image && (
         <Image
-          src={`/${image}`}
+          src={`/${image.replace('./assets/', './images/')}`}
           alt="thumbnail"
           width={240}
           height={140}
-          priority
+          priority={true}
         />
       )}
     </div>

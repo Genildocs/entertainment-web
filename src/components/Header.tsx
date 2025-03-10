@@ -1,11 +1,11 @@
 import React from 'react';
-import IconTv from '../../public/assets/icon-nav-tv-series.svg';
-import IconMovies from '../../public/assets/icon-nav-movies.svg';
-import IconHome from '../../public/assets/icon-nav-home.svg';
-import IconBookmark from '../../public/assets/icon-nav-bookmark.svg';
-import Logo from '../../public/assets/logo.svg';
+import IconTv from '../../public/images/icon-nav-tv-series.svg';
+import IconMovies from '../../public/images/icon-nav-movies.svg';
+import IconHome from '../../public/images/icon-nav-home.svg';
+import IconBookmark from '../../public/images/icon-nav-bookmark.svg';
+import Logo from '../../public/images/logo.svg';
 import Link from 'next/link';
-import Avatar from '../../public/assets/image-avatar.png';
+import Avatar from '../../public/images/image-avatar.png';
 import Image from 'next/image';
 export default function Header() {
   return (
